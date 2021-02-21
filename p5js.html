@@ -151,10 +151,84 @@
 
         <!-- P5.js como biblioteca de JavaScript -->
         <section>
+          <section>
+            <h3><code>p5.js</code> como biblioteca de JavaScript</h3>
+            <p>
+              El editor es ideal si deseamos programar de inmediato. Pero si buscamos usar <code>p5.js</code>
+              en un proyecto web, es necesario descargarlo e incluirlo como una biblioteca.
+            </p>
+            <p>
+              Para ello se puede descargar el archivo <code>*.js</code> desde la página: <br />
+              <a href="https://p5js.org/download/">https://p5js.org/download/</a>
+            </p>
+          </section>
+
+          <section data-auto-animate>
+            <p>
+              Una vez descargado el archivo <code>p5.js</code>, se incluye en el HTML deseado:
+            </p>
+            <pre data-id="p5js-html"><code class="hljs html" data-line-numbers>
+&lt;html&gt;
+  &lt;head&gt;
+    ...
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Esta es una pagina!&lt;/h1t&gt;
+    &lt;script src="p5.js">&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+          </section>
+          <section data-auto-animate>
+            <p>
+              Incluimos un archivo llamado <code>sketch.js</code>:
+            </p>
+            <pre data-id="p5js-html"><code class="hljs html" data-line-numbers>
+&lt;html&gt;
+  &lt;head&gt;
+    ...
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Esta es una pagina!&lt;/h1t&gt;
+    &lt;script src="p5.js"&gt;&lt;/script&gt;
+    &lt;script src="sketch.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+          </section>
+
+          <section>
+            <p>
+              El archivo <code>sketch.js</code> debe contener el código de nuestro sketch.
+            </p>
+            <pre><code class="hljs javascript" data-line-numbers>
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  if (mouseIsPressed) {
+    fill(0);
+  } else {
+    fill(255);
+  }
+  ellipse(mouseX, mouseY, 80, 80);
+}
+            </code></pre>
+          </section>
+
+          <section>
+            <p>
+              Finalmente, con un servidor local, podemos probarlo en nuestro navegador. O podemos subirlo a un servicio
+              de hosting para que esté disponible para todo el mundo.
+            </p>
+            <img height="350" data-src="img/p5js/web.png" />
+          </section>
         </section>
 
         <!-- El algoritmo para dibujar una línea -->
         <section>
+
         </section>
 
         <!-- Formas básicas -->
