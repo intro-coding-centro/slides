@@ -267,7 +267,8 @@ gulp.task('serve', () => {
         root: root,
         port: port,
         host: '0.0.0.0',
-        livereload: true
+        livereload: true,
+        https: true,
     })
 
     gulp.watch(['*.html', '*.md'], gulp.series('reload'))

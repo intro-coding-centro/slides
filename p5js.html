@@ -6,12 +6,12 @@
 
     <title>Fundamentos de código | P5.js | 2021-2</title>
 
-    <link rel="stylesheet" href="dist/reset.css">
-    <link rel="stylesheet" href="dist/reveal.css">
-    <link rel="stylesheet" href="dist/theme/black.css" id="theme">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme" />
 
     <!-- Theme used for syntax highlighted code -->
-    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme" />
   </head>
   <body>
     <div class="reveal">
@@ -20,27 +20,153 @@
         <!-- Titulo -->
         <section>
           <h3>2. p5.js</h3>
-          <img width="300" data-src="img/p5js/p5js.svg" />
+          <iframe data-autoplay width="500" height="400" src="https://editor.p5js.org/diegoMontesinos/present/tiKE0MrDO"></iframe>
 
           <p>
             <small>FUNDAMENTOS DE CÓDIGO | CENTRO | 2021-2</small>
           </p>
         </section>
 
-        <!-- Que es P5js -->
+        <!-- ¿Que es P5js? -->
         <section>
           <section data-auto-animate>
-            <h3><code>p5.js</code>...</h3>
-            <p class="fragment">es una herramienta para hacer animaciones, imágenes e interacciones con código.</p>
-            <p class="fragment">es una biblioteca de JavaScript.</p>
-            <p class="fragment">vive en una página web.</p>
+            <h3>¿Que es <code>p5.js</code>?</h3>
+            <p>es una herramienta para hacer animaciones, imágenes e interacciones con código.</p>
           </section>
-          <section data-background-iframe="https://editor.p5js.org/diegoMontesinos/present/4qs2H0Uqh" data-auto-animate>
-            <h3><code>p5.js</code>...</h3>
+          <section data-auto-animate>
+            <h3>¿Que es <code>p5.js</code>?</h3>
             <p>es una herramienta para hacer animaciones, imágenes e interacciones con código.</p>
             <p>es una biblioteca de JavaScript.</p>
-            <p>vive en una página web.</p>
           </section>
+          <section data-background-iframe="https://editor.p5js.org/diegoMontesinos/present/4qs2H0Uqh" data-auto-animate>
+            <h3>¿Que es <code>p5.js</code>?</h3>
+            <p>es una herramienta para hacer animaciones, imágenes e interacciones con código.</p>
+            <p>es una biblioteca de JavaScript.</p>
+            <p>es Processing en la web.</p>
+          </section>
+
+          <section>
+            <p>
+              En el lejano 2001, mientras trabajan en el MIT Media Lab, Ben Fry y Casey Reas buscaban crear una
+              herramienta para que artistas tuvieran el poder de crear software fácilmente.
+              Así nació <a href="https://processing.org/">Processing</a>.
+            </p>
+            <div class="r-hstack">
+              <img height="200" data-src="./img/p5js/Casey_Reas.jpg" style="margin: 0 5px;" />
+              <img height="200" data-src="img/p5js/T-Xm2Giz_400x400.jpg" style="margin: 0 5px;" />
+            </div>
+          </section>
+
+          <section>
+            <p>
+              El objetivo principal fue crear una manera más intuitiva de aprender código, a través de una
+              retroalimentación visual.
+            </p>
+            <p class="fragment">
+              Usualmente crear software interactivo requería aprender muchos conceptos técnicos, y la gente interesada
+              terminaba sintiendo frustración.
+            </p>
+          </section>
+
+          <section>
+            <p>
+              A lo largo de los años Processing ganó mucha popularidad y se formó una gran comunidad de
+              creadores.
+            </p>
+            <p class="fragment">
+              En 2014, Reas, Fry y Laureen McCarthy, comenzaron a preguntarse como sería si Processing
+              pudiera usarse en la Web.
+            </p>
+          </section>
+
+          <section>
+            <p>
+              <code>p5.js</code> es la interpretación de Processing usando tecnologías web.
+            </p>
+            <p class="fragment">
+              Sus principales diferencias son:
+            </p>
+            <ul>
+              <li class="fragment">
+                Processing esta escrito en Java y <code>p5.js</code> en JavaScript.
+              </li>
+              <li class="fragment">
+                El editor de Processing es un programa, mientras que <code>p5.js</code> se ejecuta en un navegador.
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <p>En la página de <code>p5.js</code> puedes encontrar más información.</p>
+            <a href="https://p5js.org/">https://p5js.org/</a>
+          </section>
+        </section>
+
+        <!-- Editor y sandbox -->
+        <section>
+          <section>
+            <h3>Editor y sandbox</h3>
+            <p>
+              Para comenzar, necesitaremos tener un editor donde escribir código y un navegador donde ejecutar nuestros
+              sketches.
+            </p>
+            <p class="fragment">
+              En la página de <code>p5.js</code> puedes encontrar un editor listo:
+              <br />
+              <a href="https://editor.p5js.org/">https://editor.p5js.org/</a>
+            </p>
+          </section>
+
+          <section>
+            <h3>Editor - Area de código</h3>
+            <video height="460" src="img/p5js/editor-code.mp4" data-autoplay loop></video>
+          </section>
+
+          <section>
+            <h3>Editor - Play y Stop</h3>
+            <video height="460" src="img/p5js/editor-buttons.mp4" data-autoplay loop></video>
+          </section>
+
+          <section>
+            <h3>Editor - Consola</h3>
+            <video height="460" src="img/p5js/editor-console.mp4" data-autoplay loop></video>
+          </section>
+
+          <section>
+            <h3>CodeSandbox</h3>
+            <p>
+              Una alternativa al editor de <code>p5.js</code>, es la plataforma CodeSandbox:
+            </p>
+            <a href="https://codesandbox.io/">https://codesandbox.io/</a>
+            <p>
+              Ofrece conexión con GitHub y un modo de edición "live" útil para esta clase.
+            </p>
+          </section>
+
+          <section>
+            <h3><code>p5.js</code> en CodeSandbox</h3>
+            <video height="460" src="img/p5js/sandbox.mp4" data-autoplay loop></video>
+          </section>
+        </section>
+
+        <!-- P5.js como biblioteca de JavaScript -->
+        <section>
+        </section>
+
+        <!-- El algoritmo para dibujar una línea -->
+        <section>
+        </section>
+
+        <!-- Formas básicas -->
+        <section>
+        </section>
+
+        <!-- Color -->
+        <section>
+        </section>
+
+        <!-- Estructura de un sketch -->
+        <section>
         </section>
       </div>
     </div>
