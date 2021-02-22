@@ -443,120 +443,122 @@ function draw() {
             </ul>
           </section>
 
-          <section class="p5js-shape-slide">
+          <section class="p5js-shape-slide" data-auto-animate>
             <h4>Líneas</h4>
             <div class="r-hstack">
               <div class="p5js-shape">
-                <small style="top: 240px; left: 29px;"><code>(x1, y1)</code></small>
-                <small style="top: 75px; left: 300px;"><code>(x2, y2)</code></small>
+                <small data-id="line-shape-label-a" style="top: 75%; left: 6%;"><code>(x1, y1)</code></small>
+                <small data-id="line-shape-label-b" style="top: 25%; left: 72%;"><code>(x2, y2)</code></small>
                 <img width="500" data-src="img/p5js/line.svg" />
               </div>
-              <pre><code class="hljs javascript">
-  line(x1, y1, x2, y2);
+              <pre><code class="hljs javascript" data-id="line-shape-code">
+ line(x1, y1, x2, y2);
               </code></pre>
             </div>
           </section>
-
-          <section class="p5js-shape-slide">
+          <section class="p5js-shape-slide" data-auto-animate>
             <h4>Líneas</h4>
             <div class="r-hstack">
               <div class="p5js-shape">
-                <small style="top: 240px; left: 29px;"><code>(20, 140)</code></small>
-                <small style="top: 75px; left: 300px;"><code>(220, 60)</code></small>
+                <small data-id="line-shape-label-a" style="top: 75%; left: 6%;"><code>(20, 140)</code></small>
+                <small data-id="line-shape-label-b" style="top: 25%; left: 72%;"><code>(220, 60)</code></small>
                 <img width="500" data-src="img/p5js/line.svg" />
               </div>
-              <pre><code class="hljs javascript">
-  line(20, 140, 220, 60);
+              <pre><code class="hljs javascript" data-id="line-shape-code">
+ line(20, 140, 220, 60);
               </code></pre>
             </div>
           </section>
 
-          <section class="p5js-shape-slide">
+          <section class="p5js-shape-slide" data-auto-animate>
             <h4>Elipses y círculos</h4>
             <div class="r-hstack">
               <div class="p5js-shape">
-                <small style="top: 170px; left: 108px;"><code>(x, y)</code></small>
-                <small style="top: 255px; left: 118px;"><code>width</code></small>
-                <small style="top: 155px; left: 260px;"><code>height</code></small>
+                <small data-id="ellipse-shape-label-a" style="top: 44%; left: 26%;"><code>(x, y)</code></small>
+                <small data-id="ellipse-shape-label-b" style="top: 80%; left: 27%;"><code>width</code></small>
+                <small data-id="ellipse-shape-label-c" style="top: 50%; left: 59%;"><code>height</code></small>
                 <img width="500" data-src="img/p5js/elipse.svg" />
               </div>
-              <pre><code class="hljs javascript">
-  ellipse(x, y, width, height);
+              <pre><code class="hljs javascript" data-id="ellipse-shape-code">
+ ellipse(x, y, width, height);
               </code></pre>
             </div>
           </section>
-
-          <section class="p5js-shape-slide">
+          <section class="p5js-shape-slide" data-auto-animate>
             <h4>Elipses y círculos</h4>
             <div class="r-hstack">
               <div class="p5js-shape">
-                <small style="top: 170px; left: 108px;"><code>(80, 100)</code></small>
-                <small style="top: 255px; left: 118px;"><code>120</code></small>
-                <small style="top: 155px; left: 260px;"><code>80</code></small>
+                <small data-id="ellipse-shape-label-a" style="top: 44%; left: 26%;"><code>(80, 100)</code></small>
+                <small data-id="ellipse-shape-label-b" style="top: 80%; left: 27%;"><code>120</code></small>
+                <small data-id="ellipse-shape-label-c" style="top: 50%; left: 59%;"><code>80</code></small>
                 <img width="500" data-src="img/p5js/elipse.svg" />
               </div>
-              <pre><code class="hljs javascript">
-  ellipse(80, 100, 120, 80);
+              <pre><code class="hljs javascript" data-id="ellipse-shape-code">
+ ellipse(80, 100, 120, 80);
               </code></pre>
             </div>
           </section>
-
-          <section class="p5js-shape-slide">
+          <section class="p5js-shape-slide" data-auto-animate>
             <h4>Elipses y círculos</h4>
             <div class="r-hstack">
               <div class="p5js-shape">
-                <small style="top: 170px; left: 90px;"><code>(80, 100)</code></small>
-                <small style="top: 255px; left: 118px;"><code>80</code></small>
-                <small style="top: 155px; left: 260px;"><code>80</code></small>
+                <small data-id="ellipse-shape-label-a" style="top: 44%; left: 23%;"><code>(80, 100)</code></small>
+                <small data-id="ellipse-shape-label-b" style="top: 80%; left: 31%;"><code>80</code></small>
+                <small data-id="ellipse-shape-label-c" style="top: 50%; left: 59%;"><code>80</code></small>
                 <img width="500" data-src="img/p5js/circle.svg" />
               </div>
-              <pre><code class="hljs javascript">
+              <pre><code class="hljs javascript" data-id="ellipse-shape-code">
   ellipse(80, 100, 80, 80);
   circle(80, 100, 80);
               </code></pre>
             </div>
           </section>
 
-          <section class="p5js-shape-slide">
+          <section class="p5js-shape-slide" data-auto-animate>
             <h4>Rectángulos</h4>
             <div class="r-hstack">
               <div class="p5js-shape">
-                <small style="top: 20px; left: 180px;"><code>(x, y)</code></small>
-                <small style="top: 220px; left: 230px;"><code>width</code></small>
-                <small style="top: 100px; left: 130px;"><code>height</code></small>
+                <small data-id="rect-shape-label-a" style="top: 7%; left: 52%"><code>(x, y)</code></small>
+                <small data-id="rect-shape-label-b" style="top: 80%; left: 65%;"><code>width</code></small>
+                <small data-id="rect-shape-label-c" style="top: 36%; left: 40%;"><code>height</code></small>
                 <img width="500" data-src="img/p5js/rect.svg" />
               </div>
-              <pre><code class="hljs javascript">
-  rect(x, y, width, height);
+              <pre><code class="hljs javascript" data-id="rect-shape-code">
+ rect(x, y, width, height);
               </code></pre>
             </div>
           </section>
-
-          <section class="p5js-shape-slide">
+          <section class="p5js-shape-slide" data-auto-animate>
             <h4>Rectángulos</h4>
             <div class="r-hstack">
               <div class="p5js-shape">
-                <small style="top: 20px; left: 180px;"><code>(160, 20)</code></small>
-                <small style="top: 220px; left: 250px;"><code>60</code></small>
-                <small style="top: 100px; left: 165px;"><code>120</code></small>
+                <small data-id="rect-shape-label-a" style="top: 7%; left: 50%"><code>(160, 20)</code></small>
+                <small data-id="rect-shape-label-b" style="top: 80%; left: 68%;"><code>60</code></small>
+                <small data-id="rect-shape-label-c" style="top: 36%; left: 46%;"><code>120</code></small>
                 <img width="500" data-src="img/p5js/rect.svg" />
               </div>
-              <pre><code class="hljs javascript">
+              <pre><code class="hljs javascript" data-id="rect-shape-code">
   rect(160, 20, 60, 120);
               </code></pre>
             </div>
           </section>
 
-          <section data-auto-animate>
+          <section>
+            <p>
+              Tanto la función <code class="hljs-emphasis">rect</code> como la función
+              <code class="hljs-emphasis">ellipse</code> tienen dos modificadores:
+            </p>
+            <ul>
+              <li><code>rectMode();</code></li>
+              <li><code>ellipseMode();</code></li>
+            </ul>
+          </section>
+
+          <section class="p5js-shape-slide" data-auto-animate>
             <h4>Polígonos</h4>
             <div class="r-hstack">
               <div class="p5js-shape">
-                <svg data-id="points-poly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.39 107.39">
-                  <rect data-id="a" x="60" width="7.39" height="7.39" rx="3.69" opacity="0" />
-                  <rect y="100" width="7.39" height="7.39" rx="3.69" opacity="0" />
-                  <rect x="60" y="60" width="7.39" height="7.39" rx="3.69" opacity="0" />
-                  <rect x="120" y="100" width="7.39" height="7.39" rx="3.69" opacity="0" />
-                </svg>
+                <svg class="points-poly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.39 107.39"></svg>
                 <img width="500" data-src="img/p5js/grid.svg" />
               </div>
               <pre><code data-id="p5js-poly-code" class="hljs javascript">
@@ -564,7 +566,144 @@ function draw() {
               </code></pre>
             </div>
           </section>
+          <section class="p5js-shape-slide" data-auto-animate>
+            <h4>Polígonos</h4>
+            <div class="r-hstack">
+              <div class="p5js-shape">
+                <small data-id="poly-shape-label-a" style="top: 15%; left: 51%"><code>(x1, y1)</code></small>
+                <svg class="points-poly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.39 107.39">
+                  <rect data-id="poly-p1" x="60" width="7.39" height="7.39" rx="3.69" />
+                </svg>
+                <img width="500" data-src="img/p5js/grid.svg" />
+              </div>
+              <pre><code data-id="p5js-poly-code" class="hljs javascript">
+  beginShape();
+  vertex(x1, y1);
+              </code></pre>
+            </div>
+          </section>
+          <section class="p5js-shape-slide" data-auto-animate>
+            <h4>Polígonos</h4>
+            <div class="r-hstack">
+              <div class="p5js-shape">
+                <small data-id="poly-shape-label-a" style="top: 15%; left: 51%"><code>(x1, y1)</code></small>
+                <small data-id="poly-shape-label-b" style="top: 74%; left: 31%"><code>(x2, y2)</code></small>
+                <svg class="points-poly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.39 107.39">
+                  <rect data-id="poly-p1" x="60" width="7.39" height="7.39" rx="3.69" />
+                  <rect data-id="poly-p2" y="100" width="7.39" height="7.39" rx="3.69" />
+                </svg>
+                <img width="500" data-src="img/p5js/grid.svg" />
+              </div>
+              <pre><code data-id="p5js-poly-code" class="hljs javascript">
+  beginShape();
+  vertex(x1, y1);
+  vertex(x2, y2);
+              </code></pre>
+            </div>
+          </section>
+          <section class="p5js-shape-slide" data-auto-animate>
+            <h4>Polígonos</h4>
+            <div class="r-hstack">
+              <div class="p5js-shape">
+                <small data-id="poly-shape-label-a" style="top: 15%; left: 51%"><code>(x1, y1)</code></small>
+                <small data-id="poly-shape-label-b" style="top: 74%; left: 31%"><code>(x2, y2)</code></small>
+                <small data-id="poly-shape-label-c" style="top: 62%; left: 50%"><code>(x3, y3)</code></small>
+                <svg class="points-poly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.39 107.39">
+                  <rect data-id="poly-p1" x="60" width="7.39" height="7.39" rx="3.69" />
+                  <rect data-id="poly-p2" y="100" width="7.39" height="7.39" rx="3.69" />
+                  <rect data-id="poly-p3" x="60" y="60" width="7.39" height="7.39" rx="3.69" />
+                </svg>
+                <img width="500" data-src="img/p5js/grid.svg" />
+              </div>
+              <pre><code data-id="p5js-poly-code" class="hljs javascript">
+  beginShape();
+  vertex(x1, y1);
+  vertex(x2, y2);
+  vertex(x3, y3);
+              </code></pre>
+            </div>
+          </section>
+          <section class="p5js-shape-slide" data-auto-animate>
+            <h4>Polígonos</h4>
+            <div class="r-hstack">
+              <div class="p5js-shape">
+                <small data-id="poly-shape-label-a" style="top: 15%; left: 51%"><code>(x1, y1)</code></small>
+                <small data-id="poly-shape-label-b" style="top: 74%; left: 31%"><code>(x2, y2)</code></small>
+                <small data-id="poly-shape-label-c" style="top: 62%; left: 50%"><code>(x3, y3)</code></small>
+                <small data-id="poly-shape-label-d" style="top: 74%; left: 74%"><code>(x4, y4)</code></small>
+                <svg class="points-poly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.39 107.39">
+                  <rect data-id="poly-p1" x="60" width="7.39" height="7.39" rx="3.69" />
+                  <rect data-id="poly-p2" y="100" width="7.39" height="7.39" rx="3.69" />
+                  <rect data-id="poly-p3" x="60" y="60" width="7.39" height="7.39" rx="3.69" />
+                  <rect data-id="poly-p4" x="120" y="100" width="7.39" height="7.39" rx="3.69" />
+                </svg>
+                <img width="500" data-src="img/p5js/grid.svg" />
+              </div>
+              <pre><code data-id="p5js-poly-code" class="hljs javascript">
+  beginShape();
+  vertex(x1, y1);
+  vertex(x2, y2);
+  vertex(x3, y3);
+  vertex(x4, y4);
+              </code></pre>
+            </div>
+          </section>
+          <section class="p5js-shape-slide" data-auto-animate>
+            <h4>Polígonos</h4>
+            <div class="r-hstack">
+              <div class="p5js-shape">
+                <small data-id="poly-shape-label-a" style="top: 15%; left: 51%"><code>(x1, y1)</code></small>
+                <small data-id="poly-shape-label-b" style="top: 74%; left: 31%"><code>(x2, y2)</code></small>
+                <small data-id="poly-shape-label-c" style="top: 62%; left: 50%"><code>(x3, y3)</code></small>
+                <small data-id="poly-shape-label-d" style="top: 74%; left: 74%"><code>(x4, y4)</code></small>
 
+                <svg class="points-poly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.39 107.39">
+                  <polygon data-id="poly-poly" points="63.7 3.69 3.69 103.69 63.7 63.7 123.69 103.69 63.7 3.69" style="fill:#999;stroke:#000;stroke-miterlimit:10;stroke-width:2px;" />
+                  <rect data-id="poly-p1" x="60" width="7.39" height="7.39" rx="3.69" />
+                  <rect data-id="poly-p2" y="100" width="7.39" height="7.39" rx="3.69" />
+                  <rect data-id="poly-p3" x="60" y="60" width="7.39" height="7.39" rx="3.69" />
+                  <rect data-id="poly-p4" x="120" y="100" width="7.39" height="7.39" rx="3.69" />
+                </svg>
+                <img width="500" data-src="img/p5js/grid.svg" />
+              </div>
+              <pre><code data-id="p5js-poly-code" class="hljs javascript">
+  beginShape();
+  vertex(x1, y1);
+  vertex(x2, y2);
+  vertex(x3, y3);
+  vertex(x4, y4);
+  endShape(CLOSE);
+              </code></pre>
+            </div>
+          </section>
+          <section class="p5js-shape-slide" data-auto-animate>
+            <h4>Polígonos</h4>
+            <div class="r-hstack">
+              <div class="p5js-shape">
+                <small data-id="poly-shape-label-a" style="top: 15%; left: 51%"><code>(160, 40)</code></small>
+                <small data-id="poly-shape-label-b" style="top: 74%; left: 29%"><code>(100, 140)</code></small>
+                <small data-id="poly-shape-label-c" style="top: 62%; left: 50%"><code>(160, 120)</code></small>
+                <small data-id="poly-shape-label-d" style="top: 74%; left: 72%"><code>(220, 140)</code></small>
+
+                <svg class="points-poly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.39 107.39">
+                  <polygon data-id="poly-poly" points="63.7 3.69 3.69 103.69 63.7 63.7 123.69 103.69 63.7 3.69" style="fill:#999;stroke:#000;stroke-miterlimit:10;stroke-width:2px;opacity: 1.0;" />
+                  <rect data-id="poly-p1" x="60" width="7.39" height="7.39" rx="3.69" style="opacity: 1.0;" />
+                  <rect data-id="poly-p2" y="100" width="7.39" height="7.39" rx="3.69" style="opacity: 1.0;" />
+                  <rect data-id="poly-p3" x="60" y="60" width="7.39" height="7.39" rx="3.69" style="opacity: 1.0;" />
+                  <rect data-id="poly-p4" x="120" y="100" width="7.39" height="7.39" rx="3.69" style="opacity: 1.0;" />
+                </svg>
+                <img width="500" data-src="img/p5js/grid.svg" />
+              </div>
+              <pre><code data-id="p5js-poly-code" class="hljs javascript">
+  beginShape();
+  vertex(160, 40);
+  vertex(100, 140);
+  vertex(160, 120);
+  vertex(220, 140);
+  endShape(CLOSE);
+              </code></pre>
+            </div>
+          </section>
 
           <section>
             <h4>Orden de dibujo</h4>
