@@ -12,6 +12,8 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme" />
+
+    <link rel="stylesheet" href="p5js.css" />
   </head>
   <body>
     <div class="reveal">
@@ -228,11 +230,207 @@ function draw() {
 
         <!-- El algoritmo para dibujar una línea -->
         <section>
+          <section>
+            <h3>Dibujando una línea</h3>
+            <p>
+              El primer sketch que escribiremos será uno muy simple: dibujar una línea diagonal.
+            </p>
+            <p class="fragment">
+              Imaginemos que <code>p5.js</code> es un robot al cual le daremos instrucciones de como dibujar una línea.
+              <img height="200" data-src="img/p5js/canvas-robo.png" />
+            </p>
+          </section>
 
+          <section class="line-algorithm-slide" data-auto-animate>
+            <h4>Algoritmo para dibujar una línea</h4>
+            <div class="r-hstack">
+              <ol class="line-algorithm">
+                <li data-id="step-1">
+                  <span>Toma una hoja de papel.</span>
+                </li>
+              </ol>
+
+              <pre><code data-id="line-code" class="hljs javascript" data-line-numbers>
+function setup() {
+}
+
+function draw() {
+}
+              </code></pre>
+            </div>
+          </section>
+          <section class="line-algorithm-slide" data-auto-animate>
+            <h4>Algoritmo para dibujar una línea</h4>
+            <div class="r-hstack">
+              <ol class="line-algorithm">
+                <li data-id="step-1">
+                  <span>Toma una hoja de papel.</span>
+                  <small>¿De que tamaño? Necesitamos especificar el tamaño.</small>
+                </li>
+              </ol>
+
+              <pre><code data-id="line-code" class="hljs javascript" data-line-numbers>
+function setup() {
+}
+
+function draw() {
+}
+              </code></pre>
+            </div>
+          </section>
+          <section class="line-algorithm-slide" data-auto-animate>
+            <h4>Algoritmo para dibujar una línea</h4>
+            <div class="r-hstack">
+              <ol class="line-algorithm">
+                <li data-id="step-1">
+                  <span>Toma una hoja de papel.</span>
+                  <small>¿De que tamaño? Necesitamos especificar el tamaño.</small>
+                </li>
+              </ol>
+
+              <pre><code data-id="line-code" class="hljs javascript" data-line-numbers>
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+}
+              </code></pre>
+            </div>
+          </section>
+          <section class="line-algorithm-slide" data-auto-animate>
+            <h4>Algoritmo para dibujar una línea</h4>
+            <div class="r-hstack">
+              <ol class="line-algorithm">
+                <li data-id="step-1">
+                  <span>Toma una hoja de papel.</span>
+                </li>
+                <li data-id="step-2">
+                  <span>Dibuja una línea de una esquina a la otra.</span>
+                </li>
+              </ol>
+
+              <pre><code data-id="line-code" class="hljs javascript" data-line-numbers>
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+}
+              </code></pre>
+            </div>
+          </section>
+          <section class="line-algorithm-slide" data-auto-animate>
+            <h4>Algoritmo para dibujar una línea</h4>
+            <div class="r-hstack">
+              <ol class="line-algorithm">
+                <li data-id="step-1">
+                  <span>Toma una hoja de papel.</span>
+                </li>
+                <li data-id="step-2">
+                  <span>Dibuja una línea de una esquina a la otra.</span>
+                  <small>
+                    <code>p5.js</code> no tiene forma de saber a cual esquina nos estamos refiriendo.
+                    Necesitamos ser mas específicos.
+                  </small>
+                </li>
+              </ol>
+
+              <pre><code data-id="line-code" class="hljs javascript" data-line-numbers>
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+}
+              </code></pre>
+            </div>
+          </section>
+          <section class="line-algorithm-slide" data-auto-animate>
+            <h4>Algoritmo para dibujar una línea</h4>
+            <div class="r-hstack">
+              <ol class="line-algorithm">
+                <li data-id="step-1">
+                  <span>Toma una hoja de papel.</span>
+                </li>
+                <li data-id="step-2">
+                  <span>Dibuja una línea de una esquina a la otra.</span>
+                  <small>
+                    <code>p5.js</code> no tiene forma de saber a cual esquina nos estamos refiriendo.
+                    Necesitamos ser mas específicos.
+                  </small>
+                </li>
+              </ol>
+
+              <pre><code data-id="line-code" class="hljs javascript" data-line-numbers>
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+}
+              </code></pre>
+            </div>
+
+            <img width="300" data-src="img/p5js/coordinates.svg" />
+          </section>
+          <section class="line-algorithm-slide" data-auto-animate>
+            <h4>Algoritmo para dibujar una línea</h4>
+            <div class="r-hstack">
+              <ol class="line-algorithm">
+                <li data-id="step-1">
+                  <span>Toma una hoja de papel.</span>
+                </li>
+                <li data-id="step-2">
+                  <span>Dibuja una línea de una esquina a la otra.</span>
+                </li>
+              </ol>
+
+              <pre><code data-id="line-code" class="hljs javascript" data-line-numbers>
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  line(0, 0, 400, 400);
+}
+              </code></pre>
+            </div>
+
+            <img width="300" data-src="img/p5js/coordinates.svg" />
+          </section>
+
+          <section>
+            <p>¡Listo! Acabamos de implementar nuestro primer programa.</p>
+            <p class="fragment">
+              Las palabras
+              <code style="color: rgba(255, 0, 0, 0.9);">createCanvas</code> y <code style="color: rgba(255, 0, 0, 0.9);">line</code>
+              son nombres de <em>funciones de dibujo</em>.
+            </p>
+            <p class="fragment">
+              Para usar una función de dibujo escribimos su nombre seguido de paréntesis, y un punto y coma:
+              <code>();</code>
+            </p>
+          </section>
+
+          <section>
+            <p>
+              Entre los paréntesis, separados por comas, ponemos los <em>parámetros</em> de la función. Estos
+              parámetros, son los valores que la función usará para hacer su labor.
+            </p>
+            <pre class="fragment"><code class="hljs javascript">
+              createCanvas(500, 500);
+            </code></pre>
+            <p class="fragment">
+              Ten en cuenta que el código es sensible a mayúsculas, por lo que debes tener cuidado al escribir el nombre
+              de las funciones.
+            </p>
+          </section>
         </section>
 
         <!-- Formas básicas -->
         <section>
+
         </section>
 
         <!-- Color -->
