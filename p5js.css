@@ -7,3 +7,26 @@
     width: 50%;
     padding: 0 14px;
 }
+
+.p5js-shape-slide pre {
+    width: 45%;
+}
+
+.p5js-shape {
+    padding: 0 14px;
+    position: relative;
+}
+
+.p5js-shape small {
+    position: absolute;
+    color: black;
+    font-size: 0.45em;
+}
+
+svg[data-id="points-poly"] {
+    position: absolute;
+    top: 18px;
+    left: 118px;
+    width: 43%;
+    height: 81%;
+}

@@ -430,7 +430,145 @@ function draw() {
 
         <!-- Formas básicas -->
         <section>
+          <section>
+            <h3>Figuras básicas</h3>
+            <p>
+              Algunas de las figuras básicas que podemos dibujar en <code>p5.js</code> son:
+            </p>
+            <ul>
+              <li class="fragment">Líneas</li>
+              <li class="fragment">Elipses y círculos</li>
+              <li class="fragment">Rectángulos</li>
+              <li class="fragment">Polígonos</li>
+            </ul>
+          </section>
 
+          <section class="p5js-shape-slide">
+            <h4>Líneas</h4>
+            <div class="r-hstack">
+              <div class="p5js-shape">
+                <small style="top: 240px; left: 29px;"><code>(x1, y1)</code></small>
+                <small style="top: 75px; left: 300px;"><code>(x2, y2)</code></small>
+                <img width="500" data-src="img/p5js/line.svg" />
+              </div>
+              <pre><code class="hljs javascript">
+  line(x1, y1, x2, y2);
+              </code></pre>
+            </div>
+          </section>
+
+          <section class="p5js-shape-slide">
+            <h4>Líneas</h4>
+            <div class="r-hstack">
+              <div class="p5js-shape">
+                <small style="top: 240px; left: 29px;"><code>(20, 140)</code></small>
+                <small style="top: 75px; left: 300px;"><code>(220, 60)</code></small>
+                <img width="500" data-src="img/p5js/line.svg" />
+              </div>
+              <pre><code class="hljs javascript">
+  line(20, 140, 220, 60);
+              </code></pre>
+            </div>
+          </section>
+
+          <section class="p5js-shape-slide">
+            <h4>Elipses y círculos</h4>
+            <div class="r-hstack">
+              <div class="p5js-shape">
+                <small style="top: 170px; left: 108px;"><code>(x, y)</code></small>
+                <small style="top: 255px; left: 118px;"><code>width</code></small>
+                <small style="top: 155px; left: 260px;"><code>height</code></small>
+                <img width="500" data-src="img/p5js/elipse.svg" />
+              </div>
+              <pre><code class="hljs javascript">
+  ellipse(x, y, width, height);
+              </code></pre>
+            </div>
+          </section>
+
+          <section class="p5js-shape-slide">
+            <h4>Elipses y círculos</h4>
+            <div class="r-hstack">
+              <div class="p5js-shape">
+                <small style="top: 170px; left: 108px;"><code>(80, 100)</code></small>
+                <small style="top: 255px; left: 118px;"><code>120</code></small>
+                <small style="top: 155px; left: 260px;"><code>80</code></small>
+                <img width="500" data-src="img/p5js/elipse.svg" />
+              </div>
+              <pre><code class="hljs javascript">
+  ellipse(80, 100, 120, 80);
+              </code></pre>
+            </div>
+          </section>
+
+          <section class="p5js-shape-slide">
+            <h4>Elipses y círculos</h4>
+            <div class="r-hstack">
+              <div class="p5js-shape">
+                <small style="top: 170px; left: 90px;"><code>(80, 100)</code></small>
+                <small style="top: 255px; left: 118px;"><code>80</code></small>
+                <small style="top: 155px; left: 260px;"><code>80</code></small>
+                <img width="500" data-src="img/p5js/circle.svg" />
+              </div>
+              <pre><code class="hljs javascript">
+  ellipse(80, 100, 80, 80);
+  circle(80, 100, 80);
+              </code></pre>
+            </div>
+          </section>
+
+          <section class="p5js-shape-slide">
+            <h4>Rectángulos</h4>
+            <div class="r-hstack">
+              <div class="p5js-shape">
+                <small style="top: 20px; left: 180px;"><code>(x, y)</code></small>
+                <small style="top: 220px; left: 230px;"><code>width</code></small>
+                <small style="top: 100px; left: 130px;"><code>height</code></small>
+                <img width="500" data-src="img/p5js/rect.svg" />
+              </div>
+              <pre><code class="hljs javascript">
+  rect(x, y, width, height);
+              </code></pre>
+            </div>
+          </section>
+
+          <section class="p5js-shape-slide">
+            <h4>Rectángulos</h4>
+            <div class="r-hstack">
+              <div class="p5js-shape">
+                <small style="top: 20px; left: 180px;"><code>(160, 20)</code></small>
+                <small style="top: 220px; left: 250px;"><code>60</code></small>
+                <small style="top: 100px; left: 165px;"><code>120</code></small>
+                <img width="500" data-src="img/p5js/rect.svg" />
+              </div>
+              <pre><code class="hljs javascript">
+  rect(160, 20, 60, 120);
+              </code></pre>
+            </div>
+          </section>
+
+          <section data-auto-animate>
+            <h4>Polígonos</h4>
+            <div class="r-hstack">
+              <div class="p5js-shape">
+                <svg data-id="points-poly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 127.39 107.39">
+                  <rect data-id="a" x="60" width="7.39" height="7.39" rx="3.69" opacity="0" />
+                  <rect y="100" width="7.39" height="7.39" rx="3.69" opacity="0" />
+                  <rect x="60" y="60" width="7.39" height="7.39" rx="3.69" opacity="0" />
+                  <rect x="120" y="100" width="7.39" height="7.39" rx="3.69" opacity="0" />
+                </svg>
+                <img width="500" data-src="img/p5js/grid.svg" />
+              </div>
+              <pre><code data-id="p5js-poly-code" class="hljs javascript">
+  beginShape();
+              </code></pre>
+            </div>
+          </section>
+
+
+          <section>
+            <h4>Orden de dibujo</h4>
+          </section>
         </section>
 
         <!-- Color -->
