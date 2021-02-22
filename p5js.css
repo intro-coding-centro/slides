@@ -37,7 +37,11 @@ svg.points-poly {
     z-index: 1;
 }
 
-.p5js-order-slide .r-hstack pre {
+.code-preview.r-hstack pre {
     width: 53%;
     padding: 0 12px;
+}
+
+.code-preview.r-hstack code {
+    font-size: 0.75em;
 }

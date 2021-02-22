@@ -404,7 +404,7 @@ function draw() {
             <p>¡Listo! Acabamos de implementar nuestro primer programa.</p>
             <p class="fragment">
               Las palabras
-              <code style="color: rgba(255, 0, 0, 0.9);">createCanvas</code> y <code style="color: rgba(255, 0, 0, 0.9);">line</code>
+              <code class="hljs-emphasis">createCanvas</code> y <code class="hljs-emphasis">line</code>
               son nombres de <em>funciones de dibujo</em>.
             </p>
             <p class="fragment">
@@ -705,20 +705,20 @@ function draw() {
             </div>
           </section>
 
-          <section class="p5js-order-slide" data-auto-animate>
+          <section data-auto-animate>
             <h4>Orden de dibujo</h4>
             <p>
               Una de las principales características de un algoritmo es que es una lista ORDENADA. Es decir, el orden
               de las instrucciones importa.
             </p>
           </section>
-          <section class="p5js-order-slide" data-auto-animate>
+          <section data-auto-animate>
             <h4>Orden de dibujo</h4>
             <p>
               Una de las principales características de un algoritmo es que es una lista ORDENADA. Es decir, el orden
               de las instrucciones importa.
             </p>
-            <div class="r-hstack">
+            <div class="code-preview r-hstack">
               <pre><code data-id="order-code" class="hljs javascript" data-line-numbers>
 function setup() {
   createCanvas(300, 300);
@@ -737,13 +737,13 @@ function draw() {
               ></iframe>
             </div>
           </section>
-          <section class="p5js-order-slide" data-auto-animate>
+          <section data-auto-animate>
             <h4>Orden de dibujo</h4>
             <p>
               Una de las principales características de un algoritmo es que es una lista ORDENADA. Es decir, el orden
               de las instrucciones importa.
             </p>
-            <div class="r-hstack">
+            <div class="code-preview r-hstack">
               <pre><code data-id="order-code" class="hljs javascript" data-line-numbers>
 function setup() {
   createCanvas(300, 300);
@@ -766,10 +766,191 @@ function draw() {
 
         <!-- Color -->
         <section>
+          <section>
+            <h3>Color</h3>
+            <p>
+              Todas las figuras tienen dos aspectos que podemos controlar: el relleno y el contorno.
+            </p>
+            <p class="fragment">
+              Podemos controlar esos dos aspectos con las funciones:
+            </p>
+            <ul class="fragment">
+              <li><code>fill</code>, establece el color de relleno.</li>
+              <li><code>stroke</code>, establece el color del contorno.</li>
+            </ul>
+          </section>
+
+          <section>
+            <p>
+              Ambas funciones reciben un parámetro: el color a usar.
+            </p>
+            <p class="fragment">
+              El color mas básico que vamos a usar es la ESCALA DE GRISES.
+            </p>
+            <div class="fragment" style="position: relative;">
+              <div style="width: 100%; height: 60px; background: rgb(0,0,0); background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(255,255,255,1) 100%);"></div>
+              <code style="position: absolute; left: -1%; top: 90%;">0</code>
+              <code style="position: absolute; left: 47%; top: 90%;">127</code>
+              <code style="position: absolute; left: 96%; top: 90%;">255</code>
+            </div>
+            <p class="fragment">
+              <br />
+              Esto mismo se puede usar en la función <code>background</code>.
+            </p>
+          </section>
+
+          <section>
+            <p>
+              Cambiar el color de relleno o de contorno afectará a todas las figuras que se dibujen después, a menos
+              que lo volvamos a cambiar.
+            </p>
+            <div class="fragment code-preview r-hstack">
+              <pre><code data-id="order-code" class="hljs javascript" data-line-numbers>
+function draw() {
+  background(0);
+
+  fill(204);   // Relleno gris claro
+  stroke(255); // Contorno blanco
+  ellipse(132, 200, 200, 200);
+
+  // Esta elipse se dibujara
+  // igual que la de arriba
+  ellipse(228, 116, 200, 200);
+
+  fill(102);
+  stroke(0);
+  rect(168, 128, 200, 200);
+}
+              </code></pre>
+              <iframe src="https://editor.p5js.org/diegoMontesinos/full/M1khDQmoR"
+                      style="width:46%; height:400px; border:0; overflow:hidden;"
+              ></iframe>
+            </div>
+          </section>
+
+          <section>
+            <p>
+              Si queremos desactivar el contorno o el relleno, existen las funciones
+              <code class="hljs-emphasis">noFill();</code> y <code class="hljs-emphasis">noStroke();</code>.
+            </p>
+            <div class="fragment code-preview r-hstack">
+              <pre><code data-id="order-code" class="hljs javascript" data-line-numbers>
+function draw() {
+  background(100);
+
+  fill(180);
+  stroke(0);
+  ellipse(132, 182, 200, 200);
+
+  noFill();
+  stroke(255);
+  ellipse(228, 116, 200, 200);
+
+  noStroke();
+  fill(0);
+  ellipse(238, 218, 200, 200);
+}
+              </code></pre>
+              <iframe src="https://editor.p5js.org/diegoMontesinos/full/ajHBARzpw"
+                      style="width:46%; height:400px; border:0; overflow:hidden;"
+              ></iframe>
+            </div>
+          </section>
+
+          <section>
+            <p>
+              ¡Queremos
+              <span style="color: red;">C</span>
+              <span style="color: yellow;">O</span>
+              <span style="color: blue;">L</span>
+              <span style="color: green;">O</span>
+              <span style="color: rebeccapurple;">R</span>
+              !
+            </p>
+            <p class="fragment">
+              Para llegar a entender como funciona el color en <code>p5.js</code>, debemos recordar cuando jugábamos
+              con la pintura en el kinder.
+            </p>
+            <img class="fragment" width="280" data-src="img/p5js/nino-pintura.jpg" />
+          </section>
+
+          <section>
+            <p>
+              Obtendremos cualquier color "mezclando" los tres colores básicos:
+              <span style="color: red;">rojo</span>,
+              <span style="color: green;">verde</span> y
+              <span style="color: blue;">azul</span>.
+            </p>
+            <div class="fragment" style="position: relative;">
+              <div style="width: 100%; height: 60px; background: rgb(255,0,0); background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,255,255,1) 100%);"></div>
+              <code style="position: absolute; left: -1%; top: 18%;">0</code>
+              <code style="position: absolute; left: 47%; top: 18%;">127</code>
+              <code style="position: absolute; left: 96%; top: 18%;">255</code>
+              <br />
+              <div style="width: 100%; height: 60px; background: rgb(0,255,0); background: linear-gradient(90deg, rgba(0,255,0,1) 0%, rgba(255,255,255,1) 100%);"></div>
+              <code style="position: absolute; left: -1%; top: 58%;">0</code>
+              <code style="position: absolute; left: 47%; top: 58%;">127</code>
+              <code style="position: absolute; left: 96%; top: 58%;">255</code>
+              <br />
+              <div style="width: 100%; height: 60px; background: rgb(0,0,255); background: linear-gradient(90deg, rgba(0,0,255,1) 0%, rgba(255,255,255,1) 100%);"></div>
+              <code style="position: absolute; left: -1%; top: 97%;">0</code>
+              <code style="position: absolute; left: 47%; top: 97%;">127</code>
+              <code style="position: absolute; left: 96%; top: 97%;">255</code>
+            </div>
+          </section>
+
+          <section>
+            <p>
+              Por ejemplo, con la mezcla:
+            </p>
+            <div class="fragment r-hstack">
+              <p style="padding: 0 14px;">
+                Rojo: 80<br />
+                Verde: 18<br />
+                Azul: 173<br />
+              </p>
+              <div style="width: 200px; height: 200px; background-color: rgb(80, 18, 173)"></div>
+            </div>
+            <p class="fragment">
+              Se puede usar en las funciones de color, usando tres parámetros.
+            </p>
+            <pre class="fragment"><code class="hljs javascript">
+ background(80, 10, 173);
+ fill(255, 0, 0);
+            </code></pre>
+          </section>
+
+          <section>
+            <h4>Ejemplo</h4>
+            <div class="code-preview r-hstack">
+              <pre><code data-id="order-code" class="hljs javascript" data-line-numbers>
+function draw() {
+  background(80, 10, 173);
+
+  fill(255, 0, 0);
+  ellipse(132, 182, 200, 200);
+
+  fill(0, 200, 100);
+  ellipse(228, 106, 200, 200);
+
+  fill(40, 100, 255);
+  ellipse(268, 218, 200, 200);
+}
+              </code></pre>
+              <iframe src="https://editor.p5js.org/diegoMontesinos/full/TUkPSpxX3"
+                      style="width:46%; height:400px; border:0; overflow:hidden;"
+              ></iframe>
+            </div>
+          </section>
+
+          <section>
+            <h4>¿Como te imaginas que sería el manejo de la transparencia?</h4>
+          </section>
         </section>
 
         <!-- Estructura de un sketch -->
         <section>
+          <!-- TODO -->
         </section>
       </div>
     </div>
