@@ -3,6 +3,7 @@ const path = require('path')
 const glob = require('glob')
 const yargs = require('yargs')
 const colors = require('colors')
+const through = require('through2');
 const qunit = require('node-qunit-puppeteer')
 
 const {rollup} = require('rollup')
@@ -10,11 +11,11 @@ const {terser} = require('rollup-plugin-terser')
 const babel = require('@rollup/plugin-babel').default
 const commonjs = require('@rollup/plugin-commonjs')
 const resolve = require('@rollup/plugin-node-resolve').default
+const sass = require('sass')
 
 const gulp = require('gulp')
 const tap = require('gulp-tap')
 const zip = require('gulp-zip')
-const sass = require('gulp-sass')
 const header = require('gulp-header')
 const eslint = require('gulp-eslint')
 const minify = require('gulp-clean-css')
@@ -23,13 +24,14 @@ const autoprefixer = require('gulp-autoprefixer')
 
 const root = yargs.argv.root || '.'
 const port = yargs.argv.port || 8000
+const host = yargs.argv.host || 'localhost'
 
 const banner = `/*!
 * reveal.js ${pkg.version}
 * ${pkg.homepage}
 * MIT licensed
 *
-* Copyright (C) 2020 Hakim El Hattab, https://hakim.se
+* Copyright (C) 2011-2022 Hakim El Hattab, https://hakim.se
 */\n`
 
 // Prevents warnings from opening too many test pages
@@ -59,12 +61,12 @@ const babelConfig = {
 // polyfilling older browsers and a larger bundle.
 const babelConfigESM = JSON.parse( JSON.stringify( babelConfig ) );
 babelConfigESM.presets[0][1].targets = { browsers: [
-        'last 2 Chrome versions', 'not Chrome < 60',
-        'last 2 Safari versions', 'not Safari < 10.1',
-        'last 2 iOS versions', 'not iOS < 10.3',
-        'last 2 Firefox versions', 'not Firefox < 60',
-        'last 2 Edge versions', 'not Edge < 16',
-    ] };
+    'last 2 Chrome versions',
+    'last 2 Safari versions',
+    'last 2 iOS versions',
+    'last 2 Firefox versions',
+    'last 2 Edge versions',
+] };
 
 let cache = {};
 
@@ -127,44 +129,66 @@ gulp.task('plugins', () => {
         { name: 'RevealMath', input: './plugin/math/plugin.js', output: './plugin/math/math' },
     ].map( plugin => {
         return rollup({
-            cache: cache[plugin.input],
-            input: plugin.input,
-            plugins: [
-                resolve(),
-                commonjs(),
-                babel({
-                    ...babelConfig,
-                    ignore: [/node_modules\/(?!(highlight\.js|marked)\/).*/],
-                }),
-                terser()
-            ]
-        }).then( bundle => {
-            cache[plugin.input] = bundle.cache;
-            bundle.write({
-                file: plugin.output + '.esm.js',
-                name: plugin.name,
-                format: 'es'
-            })
+                cache: cache[plugin.input],
+                input: plugin.input,
+                plugins: [
+                    resolve(),
+                    commonjs(),
+                    babel({
+                        ...babelConfig,
+                        ignore: [/node_modules\/(?!(highlight\.js|marked)\/).*/],
+                    }),
+                    terser()
+                ]
+            }).then( bundle => {
+                cache[plugin.input] = bundle.cache;
+                bundle.write({
+                    file: plugin.output + '.esm.js',
+                    name: plugin.name,
+                    format: 'es'
+                })
 
-            bundle.write({
-                file: plugin.output + '.js',
-                name: plugin.name,
-                format: 'umd'
-            })
-        });
+                bundle.write({
+                    file: plugin.output + '.js',
+                    name: plugin.name,
+                    format: 'umd'
+                })
+            });
     } ));
 })
 
+// a custom pipeable step to transform Sass to CSS
+function compileSass() {
+  return through.obj( ( vinylFile, encoding, callback ) => {
+    const transformedFile = vinylFile.clone();
+
+    sass.render({
+        data: transformedFile.contents.toString(),
+        includePaths: ['css/', 'css/theme/template']
+    }, ( err, result ) => {
+        if( err ) {
+            console.log( vinylFile.path );
+            console.log( err.formatted );
+        }
+        else {
+            transformedFile.extname = '.css';
+            transformedFile.contents = result.css;
+            callback( null, transformedFile );
+        }
+    });
+  });
+}
+
 gulp.task('css-themes', () => gulp.src(['./css/theme/source/*.{sass,scss}'])
-  .pipe(sass())
-  .pipe(gulp.dest('./dist/theme')))
+        .pipe(compileSass())
+        .pipe(gulp.dest('./dist/theme')))
 
 gulp.task('css-core', () => gulp.src(['css/reveal.scss'])
-  .pipe(sass())
-  .pipe(autoprefixer())
-  .pipe(minify({compatibility: 'ie9'}))
-  .pipe(header(banner))
-  .pipe(gulp.dest('./dist')))
+    .pipe(compileSass())
+    .pipe(autoprefixer())
+    .pipe(minify({compatibility: 'ie9'}))
+    .pipe(header(banner))
+    .pipe(gulp.dest('./dist')))
 
 gulp.task('css', gulp.parallel('css-themes', 'css-core'))
 
@@ -173,7 +197,7 @@ gulp.task('qunit', () => {
     let serverConfig = {
         root,
         port: 8009,
-        host: '0.0.0.0',
+        host: 'localhost',
         name: 'test-server'
     }
 
@@ -192,52 +216,52 @@ gulp.task('qunit', () => {
                 redirectConsole: false,
                 puppeteerArgs: ['--allow-file-access-from-files']
             })
-              .then(result => {
-                  if( result.stats.failed > 0 ) {
-                      console.log(`${'!'} ${filename} [${result.stats.passed}/${result.stats.total}] in ${result.stats.runtime}ms`.red);
-                      // qunit.printResultSummary(result, console);
-                      qunit.printFailedTests(result, console);
-                  }
-                  else {
-                      console.log(`${'✔'} ${filename} [${result.stats.passed}/${result.stats.total}] in ${result.stats.runtime}ms`.green);
-                  }
+                .then(result => {
+                    if( result.stats.failed > 0 ) {
+                        console.log(`${'!'} ${filename} [${result.stats.passed}/${result.stats.total}] in ${result.stats.runtime}ms`.red);
+                        // qunit.printResultSummary(result, console);
+                        qunit.printFailedTests(result, console);
+                    }
+                    else {
+                        console.log(`${'✔'} ${filename} [${result.stats.passed}/${result.stats.total}] in ${result.stats.runtime}ms`.green);
+                    }
 
-                  totalTests += result.stats.total;
-                  failingTests += result.stats.failed;
+                    totalTests += result.stats.total;
+                    failingTests += result.stats.failed;
 
-                  resolve();
-              })
-              .catch(error => {
-                  console.error(error);
-                  reject();
-              });
+                    resolve();
+                })
+                .catch(error => {
+                    console.error(error);
+                    reject();
+                });
         } )
     } ) );
 
     return new Promise( ( resolve, reject ) => {
 
         tests.then( () => {
-            if( failingTests > 0 ) {
-                reject( new Error(`${failingTests}/${totalTests} tests failed`.red) );
-            }
-            else {
-                console.log(`${'✔'} Passed ${totalTests} tests`.green.bold);
-                resolve();
-            }
-        } )
-          .catch( () => {
-              reject();
-          } )
-          .finally( () => {
-              server.close();
-          } );
+                if( failingTests > 0 ) {
+                    reject( new Error(`${failingTests}/${totalTests} tests failed`.red) );
+                }
+                else {
+                    console.log(`${'✔'} Passed ${totalTests} tests`.green.bold);
+                    resolve();
+                }
+            } )
+            .catch( () => {
+                reject();
+            } )
+            .finally( () => {
+                server.close();
+            } );
 
     } );
 } )
 
 gulp.task('eslint', () => gulp.src(['./js/**', 'gulpfile.js'])
-  .pipe(eslint())
-  .pipe(eslint.format()))
+        .pipe(eslint())
+        .pipe(eslint.format()))
 
 gulp.task('test', gulp.series( 'eslint', 'qunit' ))
 
@@ -247,33 +271,32 @@ gulp.task('build', gulp.parallel('js', 'css', 'plugins'))
 
 gulp.task('package', gulp.series('default', () =>
 
-  gulp.src([
-      './index.html',
-      './dist/**',
-      './lib/**',
-      './images/**',
-      './plugin/**',
-      './**.md'
-  ]).pipe(zip('reveal-js-presentation.zip')).pipe(gulp.dest('./'))
+    gulp.src([
+        './index.html',
+        './dist/**',
+        './lib/**',
+        './images/**',
+        './plugin/**',
+        './**.md'
+    ]).pipe(zip('reveal-js-presentation.zip')).pipe(gulp.dest('./'))
 
 ))
 
 gulp.task('reload', () => gulp.src(['*.html', '*.md'])
-  .pipe(connect.reload()));
+    .pipe(connect.reload()));
 
 gulp.task('serve', () => {
 
     connect.server({
         root: root,
         port: port,
-        host: '0.0.0.0',
-        livereload: true,
-        https: true,
+        host: host,
+        livereload: true
     })
 
     gulp.watch(['*.html', '*.md'], gulp.series('reload'))
 
-    gulp.watch(['js/**'], gulp.series('js', 'reload', 'test'))
+    gulp.watch(['js/**'], gulp.series('js', 'reload', 'eslint'))
 
     gulp.watch(['plugin/**/plugin.js'], gulp.series('plugins', 'reload'))
 
