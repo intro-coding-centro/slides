@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>
+      Condicionales | Fundamentos de código | 2022-2
+    </title>
+
+    <meta
+      name="apple-mobile-web-app-capable"
+      content="yes"
+    />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link
+      rel="stylesheet"
+      href="dist/theme/black.css"
+      id="theme"
+    />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link
+      rel="stylesheet"
+      href="plugin/highlight/monokai.css"
+    />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Titulo -->
+        <section>
+          <h3>4. Condicionales</h3>
+
+          <iframe
+            src="https://giphy.com/embed/Wht8cSV3bN8BdslVxe"
+            width="480"
+            height="270"
+            frameborder="0"
+            class="giphy-embed"
+            allowfullscreen
+          ></iframe>
+
+          <p>
+            <small
+              >FUNDAMENTOS DE CÓDIGO | CENTRO |
+              2022-2</small
+            >
+          </p>
+        </section>
+
+        <!-- Proposiciones -->
+        <section>
+          <section data-auto-animate>
+            <h4>
+              Proposiciones y<br />expresiones booleanas
+            </h4>
+            <p>
+              A las oraciones que se les puede conceder el
+              valor de falso o verdadero se le conoce como
+              <em>proposiciones</em>.
+            </p>
+          </section>
+
+          <section data-auto-animate>
+            <h4>
+              Proposiciones y<br />expresiones booleanas
+            </h4>
+            <p>Por ejemplo:</p>
+
+            <ul>
+              <li>Tengo hambre.</li>
+              <li>¡Viva la Revolución!</li>
+              <li>Esta lloviendo.</li>
+              <li>x = y + 2</li>
+              <li>50 > 10</li>
+            </ul>
+          </section>
+
+          <section data-auto-animate>
+            <h4>
+              Proposiciones y<br />expresiones booleanas
+            </h4>
+            <p>Por ejemplo:</p>
+
+            <ul>
+              <li>Tengo hambre. <span>✅</span></li>
+              <li>¡Viva la Revolución! <span>❌</span></li>
+              <li>Esta lloviendo. <span>✅</span></li>
+              <li>x = y + 2 <span>❌</span></li>
+              <li>50 > 10 <span>✅</span></li>
+            </ul>
+          </section>
+
+          <section>
+            <p>
+              A las proposiciones también se les conoce como
+              <em>expresiones booleanas</em>, en honor a
+              George Boole.
+            </p>
+            <img
+              class="fragment"
+              width="250"
+              data-src="https://upload.wikimedia.org/wikipedia/commons/6/6c/George_Boole.jpg"
+            />
+          </section>
+
+          <section>
+            <p>
+              A los valores falso o verdadero se les conoce
+              como valores booleanos, y en Javascript los
+              podemos guardar en variables como los valores
+              <code class="hljs-emphasis">false</code> o
+              <code class="hljs-emphasis">true</code>.
+            </p>
+          </section>
+        </section>
+
+        <!-- Condicional simple -->
+        <section>
+          <section data-auto-animate>
+            <h4>Condicional simple</h4>
+            <p>
+              En la mayoría de los algoritmos se necesitan
+              tomar decisiones.
+            </p>
+          </section>
+
+          <section data-auto-animate>
+            <h4>Condicional simple</h4>
+            <p>
+              En la mayoría de los algoritmos se necesitan
+              tomar decisiones.
+            </p>
+            <p>
+              Esto se traduce a decidir si se debe ejecutar
+              o no ciertas instrucciones bajo una
+              <em>condición</em>.
+            </p>
+          </section>
+
+          <section data-auto-animate>
+            <h4>Condicional simple</h4>
+            <p>
+              Las decisiones basadas en condiciones también
+              forman parte de nuestra vida.
+            </p>
+            <p>
+              Tanto en la vida real, como en los programas,
+              las condicionales tienen la misma forma.
+            </p>
+          </section>
+
+          <section data-auto-animate>
+            <h4>Condicional simple</h4>
+            <p>
+              Tanto en la vida real, como en los programas,
+              las condicionales tienen la misma forma:
+            </p>
+            <blockquote>
+              &ldquo;Si es cierto que A, entonces sucede
+              B.&rdquo;
+            </blockquote>
+          </section>
+
+          <section data-auto-animate>
+            <h4>Condicional simple</h4>
+            <p>Por ejemplo:</p>
+            <ul>
+              <li class="fragment">
+                Si tengo hambre, entonces como una
+                hamburguesa.
+              </li>
+              <li class="fragment">
+                Si estudio, seguro aprobaré la materia.
+              </li>
+              <li class="fragment">
+                Si el usuario da click sobre la nave y no ha
+                perdido, entonces dispara.
+              </li>
+            </ul>
+          </section>
+
+          <section data-auto-animate>
+            <h4>Condicional simple</h4>
+            <p>
+              Una <em>condicional simple</em> tiene la forma
+              que hemos discutido anteriormente.
+            </p>
+            <blockquote>
+              &ldquo;Si es cierto que A, entonces ejecuta
+              B.&rdquo;
+            </blockquote>
+            <p>
+              Donde A es la condición y siempre es una
+              expresión booleana.
+            </p>
+          </section>
+
+          <section data-auto-animate>
+            <h4>Condicional simple</h4>
+            <p>Si vemos esto como un diagrama de flujo:</p>
+            <img
+              style="background: #fff; padding: 10px"
+              width="260"
+              data-src="../img/conditionals/simple_conditional.svg"
+            />
+          </section>
+
+          <section data-auto-animate>
+            <h4>Condicional simple</h4>
+            <p>En JavaScript, la sintaxis es:</p>
+            <pre class="fragment">
+              <code class="hljs javascript">
+  if (condition) {
+      // Pasos a ejecutar si la condición es verdadera
+  }
+              </code>
+            </pre>
+          </section>
+
+          <section data-auto-animate>
+            <h4>Condicional simple</h4>
+            <p>
+              Ejemplo:
+            </p>
+            <pre data-id="code-if-a">
+              <code class="hljs javascript" data-trim data-line-numbers>
+  let a = 10;
+  if (a > 3) {
+    console.log('La variable a es mayor que 3');
+  }
+              </code>
+            </pre>
+          </section>
+
+          <section data-auto-animate>
+            <h4>Condicional simple</h4>
+            <p>
+              Ejemplo:
+            </p>
+            <pre data-id="code-if-a">
+              <code class="hljs javascript" data-trim data-line-numbers>
+  let a = 10;
+  if (a > 3) {
+    console.log('La variable a es mayor que 3');
+  }
+  
+  let b = 20;
+  if (a + 10 === b) {
+    console.log('Es cierto');
+  }
+
+  if (b &lt; a) {
+    console.log('b es menor que a');
+  }
+              </code>
+            </pre>
+          </section>
+
+          <section data-auto-animate>
+            <h4>Condicional simple</h4>
+            <p>
+              ¿Podrías hacer el diagrama de flujo de los ejemplos anteriores?
+            </p>
+          </section>
+        </section>
+
+        <!-- Operadores de comparación -->
+        <section>
+          <section data-auto-animate>
+            <h4>Operadores de comparación</h4>
+            <pre><code class="hljs javascript">let n = 28;</code></pre>
+            <table>
+              <thead>
+                <tr>
+                  <th>Símbolo</th>
+                  <th>Nombre</th>
+                  <th>Ejemplo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>===</td>
+                  <td>Igualdad estricta</td>
+                  <td>n == 28<br>n === '28'</td>
+                </tr>
+                <tr>
+                  <td>!==</td>
+                  <td>Desigualdad estricta</td>
+                  <td>n !== 28<br>n !== '28'</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <section data-auto-animate>
+            <h4>Operadores de comparación</h4>
+            <pre><code class="hljs javascript">let n = 28;</code></pre>
+            <table>
+              <thead>
+                <tr>
+                  <th>Símbolo</th>
+                  <th>Nombre</th>
+                  <th>Ejemplo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&gt;</td>
+                  <td>Menor que</td>
+                  <td>n &gt; 25<br>n &gt; 30</td>
+                </tr>
+                <tr>
+                  <td>&lt;</td>
+                  <td>Mayor que</td>
+                  <td>n &lt; 31
+                    <br>n &lt; 23</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section data-auto-animate>
+            <h4>Operadores de comparación</h4>
+            <pre><code class="hljs javascript">let n = 28;</code></pre>
+            <table>
+              <thead>
+                <tr>
+                  <th>Símbolo</th>
+                  <th>Nombre</th>
+                  <th>Ejemplo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>&gt;=</td>
+                  <td>Mayor o igual que</td>
+                  <td>n &gt;= 28</td>
+                </tr>
+                <tr>
+                  <td>&lt;=</td>
+                  <td>Menor o igual que</td>
+                  <td>n &lt;= 28</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </section>
+
+        <!-- Condicional completa -->
+        <section>
+          <section data-auto-animate>
+            <h4>Condicional completa</h4>
+          </section>
+        </section>
+
+        <!-- Operadores lógicos -->
+        <!-- Condicional multiple -->
+        <!-- Condicional completa -->
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/search/search.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // Also available as an ES module, see:
+      // https://revealjs.com/initialization/
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealZoom,
+          RevealNotes,
+          RevealSearch,
+          RevealMarkdown,
+          RevealHighlight,
+        ],
+      });
+    </script>
+  </body>
+</html>
